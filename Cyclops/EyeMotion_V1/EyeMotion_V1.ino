@@ -6,8 +6,6 @@
 ServoEasing eyeLidServo;  // create servo object to control a servo
 ServoEasing upDownServo;
 ServoEasing leftRightServo;
-ServoEasing leftWheelServo;
-ServoEasing rightWheelServo;
 
 // 16 servo objects can be created on the ESP32
 
@@ -15,9 +13,6 @@ ServoEasing rightWheelServo;
 int eyeLidPin = 32;
 int upDownPin = 33;
 int leftRightPin = 25;
-
-int leftWheelPin = 26;
-int rightWheelPin = 27;
 
 
 // Servo Limits
@@ -43,8 +38,6 @@ void setup() {
   eyeLidServo.setPeriodHertz(50);     // standard 50 hz servos
   upDownServo.setPeriodHertz(50);     // standard 50 hz servo
   leftRightServo.setPeriodHertz(50);  // standard 50 hz servo
-  leftWheelServo.setPeriodHertz(50);     // standard 50 hz servo
-  rightWheelServo.setPeriodHertz(50);  // standard 50 hz servo
 
   // eyeLidServo.attach(eyeLidPin, 500, 1200); // attaches the servo on pin 18 to the servo object
   // upDownServo.attach(upDownPin, 500, 1200); // attaches the servo on pin 18 to the servo object
@@ -56,14 +49,6 @@ void setup() {
                                         // different servos may require different min/max settings
                                         // for an accurate 0 to 180 sweep
 
-  rightWheelServo.attach(rightWheelPin);
-  leftWheelServo.attach(leftWheelPin);
-
-
-  //test
-  rightWheelServo.easeTo(90);
-
-  delay(2000);
   //home servos
   eyeLidServo.setEaseTo(127);
   upDownServo.setEaseTo(upDownServoCentre);
@@ -81,7 +66,6 @@ void setup() {
 
 
 void loop() {
-
   eyeMotion();
 }
 
